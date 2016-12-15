@@ -1,0 +1,21 @@
+<div ng-show="isAuthenticated">
+  <p>This is the content of the account</p>
+  <b>{{accounts.data.accounts[0].description}}</b>
+  <br><cite>{{accounts.data.accounts[0].id}}</cite>
+</div>
+
+<div>
+  <div ng-repeat="transact in transactions.data.transactions">
+    <h3>{{transact.description}}</h3>
+    <img ng-src="{{transact.merchant.logo}}" width="50">
+    {{transact.local_amount}}
+    {{transact.created}}
+    {{transact.category}}
+    {{transact.suggested_tags}}
+  </div>
+</div>
+
+
+<div ng-show="!isAuthenticated">
+  <a href ng-click="getAuthCode()">You need to login</a>
+</div>
